@@ -1,0 +1,81 @@
+Project Overview
+JalSuraksha is a PHC-first early warning system that integrates weekly health case logs, rainfall data, and water quality reports to predict water-borne disease outbreaks. The system provides 3+ days lead time for preventive interventions.
+
+Demo Requirements
+Core Features to Implement:
+Dashboard Interface
+Clean, modern UI with health monitoring theme
+Real-time risk status display (Green/Yellow/Red alerts)
+Map view of Northeast India showing PHC locations and risk zones
+Data visualization charts for disease trends and rainfall patterns
+Data Collection Module
+Simulated PHC weekly case log entry form
+Water quality reporting interface
+Mobile-responsive design for field workers
+Risk Assessment Engine
+Rule-based risk scoring algorithm
+Display risk factors and reasoning behind alerts
+Historical outbreak pattern visualization
+Alert System Simulation
+Tiered alert generation (Low/Medium/High risk)
+PHC verification workflow mockup
+SMS alert preview for ASHA workers
+Multilingual Support
+Interface available in English, Assamese, and Bengali
+Language switcher in header
+Technical Specifications:
+Frontend: React.js or Vue.js with responsive design
+Styling: Modern CSS framework (Tailwind/Bootstrap) with health/medical color scheme
+Charts: Chart.js or D3.js for data visualization
+Maps: Leaflet.js or Google Maps for geographic display
+Data: Use mock JSON data simulating real PHC reports and weather data
+Offline Capability: Show offline mode indicator and sync status
+Sample Data to Include:
+Mock PHC locations across Assam, Meghalaya, Manipur, Tripura
+Sample disease case data (diarrhea, cholera, typhoid trends)
+Rainfall data correlation with outbreak patterns
+Water quality test results from different villages
+Historical alert examples with outcomes
+UI/UX Guidelines:
+Colors: Medical blues, greens for safe zones, yellows/reds for alerts
+Typography: Clear, readable fonts suitable for healthcare workers
+Icons: Healthcare, water, alert, and geographic icons
+Mobile-First: Ensure usability on basic smartphones
+Accessibility: High contrast, clear labeling for rural users
+Key Screens to Build:
+Landing/Overview Dashboard - Risk status, recent alerts, key metrics
+Data Entry Forms - PHC case logging, water quality reports
+Risk Analysis View - Detailed risk scoring with explanations
+Alert Management - Current alerts, verification queue, SMS previews
+Historical Data - Trends, past outbreaks, system performance metrics
+Settings/Config - Language selection, notification preferences
+Interactive Elements:
+Clickable map markers showing PHC details and risk status
+Expandable alert cards with detailed information
+Form validation with helpful error messages
+Real-time data updates simulation
+Filter and search functionality for historical data
+Demo Flow:
+User lands on dashboard showing current risk status
+Can navigate to data entry to simulate PHC worker logging cases
+Risk engine updates and shows new alert generation
+PHC verification workflow demonstration
+Alert dissemination to community simulation
+Success Metrics Display:
+"3+ Days Earlier Detection" counter
+"≥70% Outbreak Detection Rate" progress bar
+"≤20% False Alarm Rate" indicator
+Impact statistics and community reach numbers
+Technical Notes:
+Include loading states and offline mode indicators
+Add sample notifications and status updates
+Implement basic responsive breakpoints
+Use placeholder API calls that return realistic mock data
+Include print-friendly views for reports
+Branding:
+Use "JalSuraksha" branding throughout
+Include "Built by Team Alt F4 for Smart India Hackathon 2025"
+Professional healthcare system aesthetic
+Trust-building design elements (verified badges, official look)
+Create a fully functional, visually appealing demo that effectively showcases JalSuraksha's potential impact on rural healthcare in Northeast India. Focus on demonstrating the complete workflow from data collection to community alert dissemination.
+
