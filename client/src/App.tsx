@@ -23,7 +23,7 @@ function HomePage() {
       <Header 
         unreadNotifications={3}
         currentUser={{
-          name: "Dr. Priya Sharma",
+          name: "Dr. Demo",
           role: "PHC Administrator",
           phc: "Guwahati PHC"
         }}

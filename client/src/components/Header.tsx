@@ -34,7 +34,7 @@ export function Header({
 
   //todo: remove mock functionality - replace with real user data
   const user = currentUser || {
-    name: "Dr. Priya Sharma",
+    name: "Dr. Demo",
     role: "PHC Administrator", 
     phc: "Guwahati PHC"
   };
@@ -108,23 +108,71 @@ export function Header({
           </Button>
           
           {/* Notifications */}
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={handleNotifications}
-            data-testid="button-notifications"
-            className="relative"
-          >
-            <Bell className="h-4 w-4" />
-            {unreadNotifications > 0 && (
-              <Badge 
-                className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-red-500 text-white"
-                data-testid="notification-count"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                data-testid="button-notifications"
+                className="relative"
               >
-                {unreadNotifications > 9 ? "9+" : unreadNotifications}
-              </Badge>
-            )}
-          </Button>
+                <Bell className="h-4 w-4" />
+                {unreadNotifications > 0 && (
+                  <Badge 
+                    className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs bg-red-500 text-white"
+                    data-testid="notification-count"
+                  >
+                    {unreadNotifications > 9 ? "9+" : unreadNotifications}
+                  </Badge>
+                )}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-80" data-testid="notification-dropdown">
+              <div className="flex items-center justify-between px-4 py-2 border-b">
+                <h3 className="font-medium">Notifications</h3>
+                <Badge variant="outline" className="ml-auto">
+                  {unreadNotifications} new
+                </Badge>
+              </div>
+              <div className="max-h-80 overflow-y-auto">
+                <div className="px-4 py-3 border-b hover:bg-accent/50 cursor-pointer">
+                  <div className="flex items-start gap-2">
+                    <div className="h-2 w-2 mt-1.5 rounded-full bg-blue-500 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium">Water quality alert in Guwahati</p>
+                      <p className="text-xs text-muted-foreground">E. coli levels above threshold detected</p>
+                      <p className="text-xs text-muted-foreground mt-1">10 minutes ago</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="px-4 py-3 border-b hover:bg-accent/50 cursor-pointer">
+                  <div className="flex items-start gap-2">
+                    <div className="h-2 w-2 mt-1.5 rounded-full bg-red-500 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium">Critical: Contamination in Silchar</p>
+                      <p className="text-xs text-muted-foreground">Multiple contaminants detected in water supply</p>
+                      <p className="text-xs text-muted-foreground mt-1">1 hour ago</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="px-4 py-3 hover:bg-accent/50 cursor-pointer">
+                  <div className="flex items-start gap-2">
+                    <div className="h-2 w-2 mt-1.5 rounded-full bg-yellow-500 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-sm font-medium">System update completed</p>
+                      <p className="text-xs text-muted-foreground">New risk assessment model deployed</p>
+                      <p className="text-xs text-muted-foreground mt-1">Yesterday</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-2 border-t">
+                <Button variant="ghost" size="sm" className="w-full justify-center text-xs" onClick={handleNotifications}>
+                  View all notifications
+                </Button>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
           {/* Settings */}
           <Button 

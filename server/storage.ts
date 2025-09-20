@@ -356,7 +356,7 @@ export class MemStorage implements IStorage {
         latitude: 26.1445,
         longitude: 91.7362,
         contactPhone: "+91-98765-43210",
-        adminName: "Dr. Priya Sharma",
+        adminName: "Dr. Demo",
         status: "active" as const
       },
       {
@@ -415,7 +415,7 @@ export class MemStorage implements IStorage {
     const adminId = randomUUID();
     const adminUser: User = {
       id: adminId,
-      name: "Dr. Priya Sharma",
+      name: "Dr. Demo",
       email: "priya.sharma@jalsuraksha.gov.in",
       role: "admin",
       phcId: Array.from(this.phcs.values())[0].id,
