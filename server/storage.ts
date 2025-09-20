@@ -13,6 +13,7 @@ export interface IStorage {
   getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   updateUser(id: string, updates: Partial<InsertUser>): Promise<User | undefined>;
+  deleteUser(id: string): Promise<boolean>;
   
   // PHC operations
   getPHC(id: string): Promise<PHC | undefined>;
@@ -21,6 +22,7 @@ export interface IStorage {
   getPHCsByDistrict(district: string): Promise<PHC[]>;
   createPHC(phc: InsertPHC): Promise<PHC>;
   updatePHC(id: string, updates: Partial<InsertPHC>): Promise<PHC | undefined>;
+  deletePHC(id: string): Promise<boolean>;
   
   // Disease report operations
   getDiseaseReport(id: string): Promise<DiseaseReport | undefined>;
@@ -29,6 +31,7 @@ export interface IStorage {
   getRecentDiseaseReports(days?: number): Promise<DiseaseReport[]>;
   createDiseaseReport(report: InsertDiseaseReport): Promise<DiseaseReport>;
   updateDiseaseReport(id: string, updates: Partial<InsertDiseaseReport>): Promise<DiseaseReport | undefined>;
+  deleteDiseaseReport(id: string): Promise<boolean>;
   
   // Water quality test operations
   getWaterQualityTest(id: string): Promise<WaterQualityTest | undefined>;
@@ -37,6 +40,7 @@ export interface IStorage {
   getRecentWaterQualityTests(days?: number): Promise<WaterQualityTest[]>;
   createWaterQualityTest(test: InsertWaterQualityTest): Promise<WaterQualityTest>;
   updateWaterQualityTest(id: string, updates: Partial<InsertWaterQualityTest>): Promise<WaterQualityTest | undefined>;
+  deleteWaterQualityTest(id: string): Promise<boolean>;
   
   // Alert operations
   getAlert(id: string): Promise<Alert | undefined>;
@@ -49,6 +53,7 @@ export interface IStorage {
   updateAlert(id: string, updates: Partial<InsertAlert>): Promise<Alert | undefined>;
   verifyAlert(id: string, verifiedBy: string): Promise<Alert | undefined>;
   resolveAlert(id: string, resolvedBy: string): Promise<Alert | undefined>;
+  deleteAlert(id: string): Promise<boolean>;
 }
 
 export class MemStorage implements IStorage {
@@ -318,6 +323,27 @@ export class MemStorage implements IStorage {
     };
     this.alerts.set(id, updatedAlert);
     return updatedAlert;
+  }
+
+  // Delete operations
+  async deleteUser(id: string): Promise<boolean> {
+    return this.users.delete(id);
+  }
+
+  async deletePHC(id: string): Promise<boolean> {
+    return this.phcs.delete(id);
+  }
+
+  async deleteDiseaseReport(id: string): Promise<boolean> {
+    return this.diseaseReports.delete(id);
+  }
+
+  async deleteWaterQualityTest(id: string): Promise<boolean> {
+    return this.waterQualityTests.delete(id);
+  }
+
+  async deleteAlert(id: string): Promise<boolean> {
+    return this.alerts.delete(id);
   }
 
   private initializeSampleData() {
